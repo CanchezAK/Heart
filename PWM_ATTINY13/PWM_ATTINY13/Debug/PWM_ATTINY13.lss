@@ -1,0 +1,205 @@
+
+PWM_ATTINY13.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000019e  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000001f2  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  000001f2  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000224  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000038  00000000  00000000  00000260  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000522  00000000  00000000  00000298  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000430  00000000  00000000  000007ba  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000002cc  00000000  00000000  00000bea  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000054  00000000  00000000  00000eb8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000002c1  00000000  00000000  00000f0c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000146  00000000  00000000  000011cd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000028  00000000  00000000  00001313  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	89 c0       	rjmp	.+274    	; 0x114 <__ctors_end>
+   2:	96 c0       	rjmp	.+300    	; 0x130 <__bad_interrupt>
+   4:	95 c0       	rjmp	.+298    	; 0x130 <__bad_interrupt>
+   6:	94 c0       	rjmp	.+296    	; 0x130 <__bad_interrupt>
+   8:	93 c0       	rjmp	.+294    	; 0x130 <__bad_interrupt>
+   a:	92 c0       	rjmp	.+292    	; 0x130 <__bad_interrupt>
+   c:	91 c0       	rjmp	.+290    	; 0x130 <__bad_interrupt>
+   e:	90 c0       	rjmp	.+288    	; 0x130 <__bad_interrupt>
+  10:	8f c0       	rjmp	.+286    	; 0x130 <__bad_interrupt>
+  12:	8e c0       	rjmp	.+284    	; 0x130 <__bad_interrupt>
+
+00000014 <PWM_table>:
+	...
+  2c:	00 01 01 01 01 01 01 01 01 02 02 02 02 02 02 02     ................
+  3c:	03 03 03 03 03 04 04 04 04 05 05 05 05 06 06 06     ................
+  4c:	06 07 07 07 08 08 08 09 09 09 0a 0a 0a 0b 0b 0c     ................
+  5c:	0c 0c 0d 0d 0e 0e 0f 0f 10 10 11 11 12 12 13 13     ................
+  6c:	14 14 15 15 16 17 17 18 18 19 1a 1a 1b 1c 1c 1d     ................
+  7c:	1e 1e 1f 20 20 21 22 23 23 24 25 26 26 27 28 29     ...  !"##$%&&'()
+  8c:	2a 2b 2b 2c 2d 2e 2f 30 31 32 33 34 34 35 36 37     *++,-./012344567
+  9c:	38 39 3a 3b 3c 3d 3f 40 41 42 43 44 45 46 47 48     89:;<=?@ABCDEFGH
+  ac:	4a 4b 4c 4d 4e 50 51 52 53 55 56 57 58 5a 5b 5c     JKLMNPQRSUVWXZ[\
+  bc:	5e 5f 60 62 63 64 66 67 69 6a 6c 6d 6e 70 71 73     ^_`bcdfgijlmnpqs
+  cc:	74 76 78 79 7b 7c 7e 7f 81 83 84 86 87 89 8b 8d     tvxy{|~.........
+  dc:	8e 90 92 93 95 97 99 9a 9c 9e a0 a2 a4 a5 a7 a9     ................
+  ec:	ab ad af b1 b3 b5 b7 b9 bb bd bf c1 c3 c5 c7 c9     ................
+  fc:	cb cd cf d1 d3 d6 d8 da dc de e1 e3 e5 e7 ea ec     ................
+ 10c:	ee f0 f3 f5 f7 fa fc ff                             ........
+
+00000114 <__ctors_end>:
+ 114:	11 24       	eor	r1, r1
+ 116:	1f be       	out	0x3f, r1	; 63
+ 118:	cf e9       	ldi	r28, 0x9F	; 159
+ 11a:	cd bf       	out	0x3d, r28	; 61
+
+0000011c <__do_clear_bss>:
+ 11c:	20 e0       	ldi	r18, 0x00	; 0
+ 11e:	a0 e6       	ldi	r26, 0x60	; 96
+ 120:	b0 e0       	ldi	r27, 0x00	; 0
+ 122:	01 c0       	rjmp	.+2      	; 0x126 <.do_clear_bss_start>
+
+00000124 <.do_clear_bss_loop>:
+ 124:	1d 92       	st	X+, r1
+
+00000126 <.do_clear_bss_start>:
+ 126:	a0 36       	cpi	r26, 0x60	; 96
+ 128:	b2 07       	cpc	r27, r18
+ 12a:	e1 f7       	brne	.-8      	; 0x124 <.do_clear_bss_loop>
+ 12c:	21 d0       	rcall	.+66     	; 0x170 <main>
+ 12e:	35 c0       	rjmp	.+106    	; 0x19a <_exit>
+
+00000130 <__bad_interrupt>:
+ 130:	67 cf       	rjmp	.-306    	; 0x0 <__vectors>
+
+00000132 <pulse>:
+	pulse();
+}
+
+void pulse()
+{
+	uint8_t count = 0;
+ 132:	80 e0       	ldi	r24, 0x00	; 0
+	do
+	{
+		OCR0A = PWM_table[count];
+ 134:	e8 2f       	mov	r30, r24
+ 136:	f0 e0       	ldi	r31, 0x00	; 0
+ 138:	ec 5e       	subi	r30, 0xEC	; 236
+ 13a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 13c:	90 81       	ld	r25, Z
+ 13e:	96 bf       	out	0x36, r25	; 54
+		count++;
+ 140:	8f 5f       	subi	r24, 0xFF	; 255
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 142:	e0 ee       	ldi	r30, 0xE0	; 224
+ 144:	f1 e0       	ldi	r31, 0x01	; 1
+ 146:	31 97       	sbiw	r30, 0x01	; 1
+ 148:	f1 f7       	brne	.-4      	; 0x146 <pulse+0x14>
+		_delay_us(400);
+	}
+	while(count!=255);
+ 14a:	8f 3f       	cpi	r24, 0xFF	; 255
+ 14c:	99 f7       	brne	.-26     	; 0x134 <pulse+0x2>
+		
+	do
+	{
+		OCR0A = PWM_table[count];
+ 14e:	e8 2f       	mov	r30, r24
+ 150:	f0 e0       	ldi	r31, 0x00	; 0
+ 152:	ec 5e       	subi	r30, 0xEC	; 236
+ 154:	ff 4f       	sbci	r31, 0xFF	; 255
+ 156:	90 81       	ld	r25, Z
+ 158:	96 bf       	out	0x36, r25	; 54
+		count--;
+ 15a:	81 50       	subi	r24, 0x01	; 1
+ 15c:	e0 ee       	ldi	r30, 0xE0	; 224
+ 15e:	f1 e0       	ldi	r31, 0x01	; 1
+ 160:	31 97       	sbiw	r30, 0x01	; 1
+ 162:	f1 f7       	brne	.-4      	; 0x160 <pulse+0x2e>
+		_delay_us(400);
+	}
+	while (count!=0);
+ 164:	81 11       	cpse	r24, r1
+ 166:	f3 cf       	rjmp	.-26     	; 0x14e <pulse+0x1c>
+}
+ 168:	08 95       	ret
+
+0000016a <bpm_pulse>:
+void bpm_pulse(uint32_t pul)
+{
+	uint8_t bpm = 60000000/pul;
+	
+	delay_us(bpm/2);
+	pulse();
+ 16a:	e3 df       	rcall	.-58     	; 0x132 <pulse>
+	delay_us(bpm/2);
+	pulse();
+ 16c:	e2 df       	rcall	.-60     	; 0x132 <pulse>
+ 16e:	08 95       	ret
+
+00000170 <main>:
+}
+
+
+int main(void)
+{
+	asm("cli");
+ 170:	f8 94       	cli
+    DDRB |= (1 << LED0);
+ 172:	87 b3       	in	r24, 0x17	; 23
+ 174:	81 60       	ori	r24, 0x01	; 1
+ 176:	87 bb       	out	0x17, r24	; 23
+	PORTB = 0x04;
+ 178:	84 e0       	ldi	r24, 0x04	; 4
+ 17a:	88 bb       	out	0x18, r24	; 24
+    TCCR0A = 0x83; // режим ШИМ, неинверсный сигнал на выходе OC0A
+ 17c:	83 e8       	ldi	r24, 0x83	; 131
+ 17e:	8f bd       	out	0x2f, r24	; 47
+    TCCR0B = 0x02;
+ 180:	82 e0       	ldi	r24, 0x02	; 2
+ 182:	83 bf       	out	0x33, r24	; 51
+    TCNT0=0;
+ 184:	12 be       	out	0x32, r1	; 50
+    OCR0A=0;
+ 186:	16 be       	out	0x36, r1	; 54
+	asm("sei");
+ 188:	78 94       	sei
+	
+    while (1) 
+    {
+		if ((PINB & (1<<2)) == 0)
+ 18a:	b2 99       	sbic	0x16, 2	; 22
+ 18c:	fe cf       	rjmp	.-4      	; 0x18a <main+0x1a>
+		{
+			bpm_pulse(50);
+ 18e:	62 e3       	ldi	r22, 0x32	; 50
+ 190:	70 e0       	ldi	r23, 0x00	; 0
+ 192:	80 e0       	ldi	r24, 0x00	; 0
+ 194:	90 e0       	ldi	r25, 0x00	; 0
+ 196:	e9 df       	rcall	.-46     	; 0x16a <bpm_pulse>
+ 198:	f8 cf       	rjmp	.-16     	; 0x18a <main+0x1a>
+
+0000019a <_exit>:
+ 19a:	f8 94       	cli
+
+0000019c <__stop_program>:
+ 19c:	ff cf       	rjmp	.-2      	; 0x19c <__stop_program>
